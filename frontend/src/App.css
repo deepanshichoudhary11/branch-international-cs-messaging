@@ -1,0 +1,194 @@
+/* ========== THEME VARIABLES ========== */
+
+body[data-theme="dark"] {
+  --bg: #020617;
+  --panel: #020617;
+  --card: rgba(255, 255, 255, 0.06);
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.1);
+  --accent: #2563eb;
+}
+
+body[data-theme="light"] {
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e5e7eb;
+  --accent: #2563eb;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ========== LAYOUT ========== */
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+/* ========== SIDEBAR ========== */
+
+.sidebar {
+  width: 260px;
+  background: var(--panel);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid var(--border);
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.menu p {
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: all 0.25s ease;
+  background: var(--card);
+}
+
+.menu p:hover {
+  transform: translateX(6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.menu .urgent {
+  color: #f87171;
+}
+
+.menu .resolved {
+  color: #4ade80;
+}
+
+.theme-toggle {
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--text);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ========== MESSAGE LIST ========== */
+
+.message-list {
+  width: 440px;
+  padding: 28px;
+  overflow-y: auto;
+}
+
+.message-list input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.message-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  animation: fadeUp 0.3s ease;
+  transition: all 0.25s ease;
+}
+
+.message-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Pulse for urgent */
+.priority-high {
+  color: #f87171;
+  font-weight: 700;
+  animation: pulse 1.6s infinite;
+}
+
+.priority-low {
+  color: var(--muted);
+}
+
+/* ========== CHAT PANEL ========== */
+
+.chat-panel {
+  flex: 1;
+  padding: 32px;
+  background: var(--panel);
+  border-left: 1px solid var(--border);
+  animation: slideIn 0.3s ease;
+}
+
+.chat-panel select,
+.chat-panel input {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+}
+
+.chat-panel button {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ========== ANIMATIONS ========== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
